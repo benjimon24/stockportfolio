@@ -1,7 +1,7 @@
 class StocksController < ApplicationController
 
   def show
-    @stock = StockQuote::Stock.json_quote(params[:symbol]["quote"])
+    @stock = StockQuote::Stock.json_quote(params[:symbol])["quote"]
     if @stock
       render json: @stock
     else
