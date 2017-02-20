@@ -17,5 +17,4 @@ class Stock < ApplicationRecord
   def net_profit
     self.current_value - self.cost_basis
   end
-
 end
