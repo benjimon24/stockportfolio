@@ -6,9 +6,11 @@ class Login extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    let user_params = {session: {email: this.refs.email.value, password: this.refs.password.value }}
     $.ajax({
-      url: 'sessions/login',
-      method: 'post'
+      url: '/session/login',
+      method: 'post',
+      data: user_params
     }).done(response => {
       console.log(response)
       debugger;
