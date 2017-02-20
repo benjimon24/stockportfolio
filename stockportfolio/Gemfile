@@ -54,4 +54,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'pry'
 
-gem 'yahoo-finance'
+# gem 'yahoo-finance'
+gem 'stock_quote'

@@ -1,5 +1,8 @@
 class User < ApplicationRecord
   has_many :portfolios
+  validates_presence_of :first_name, :last_name, :email
+  validates_uniqueness_of :email
+  validates  :password, length: {minimum: 6}
 
-  validates_presence_of :first_name, :last_name, :password, :email
+  has_secure_password
 end
