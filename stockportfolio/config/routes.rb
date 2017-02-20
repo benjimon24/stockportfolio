@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
-  get '/users/new', to: "users#new"
-  get '/sessions/login', to: "sessions#login"
-  root 'portfolio#show'
+  root 'portfolios#index'
+  get 'stocks/search/:name', to: 'stocks#search'
   resources :users, except: [:index, :destroy]
   resources :portfolios
-  resources :stocks, except: [:index]
+  resources :stocks, only: [:show]
+
+  get '/session/login', to: 'session#login', as: 'login'
+  post '/session/login'
+  get '/session/logout', to: 'session#logout', as: 'logout'
+
 end
