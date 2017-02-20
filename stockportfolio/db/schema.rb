@@ -10,21 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20170220184521) do
-
 ActiveRecord::Schema.define(version: 20170220160500) do
-
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "stocks", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "users", force: :cascade do |t|
 
   create_table "portfolios", force: :cascade do |t|
     t.string   "name",       null: false
@@ -37,7 +26,7 @@ ActiveRecord::Schema.define(version: 20170220160500) do
   create_table "stocks", force: :cascade do |t|
     t.string   "name",                     null: false
     t.integer  "portfolio_id",             null: false
-    t.float    "cost_basis",               null: false
+    t.float    "buy_price",                null: false
     t.integer  "volume",       default: 1
     t.string   "symbol",                   null: false
     t.datetime "created_at",               null: false
@@ -46,12 +35,12 @@ ActiveRecord::Schema.define(version: 20170220160500) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "first_name", null: false
-    t.string   "last_name",  null: false
-    t.string   "password",   null: false
-    t.string   "email",      null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "first_name",      null: false
+    t.string   "last_name",       null: false
+    t.string   "password_digest", null: false
+    t.string   "email",           null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end
