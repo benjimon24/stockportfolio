@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resources :portfolios
   resources :stocks, except: [:index]
 
+  get 'stocks/search/:symbol', to: 'stocks#search'
+
 end
