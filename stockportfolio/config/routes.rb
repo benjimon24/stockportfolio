@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  root 'portfolio#show'
+  root 'portfolios#show'
+  get 'stocks/search/:symbol', to: 'stocks#search'
   resources :users, except: [:index, :destroy]
   resources :portfolios
   resources :stocks, except: [:index]
 
-  get 'stocks/search/:symbol', to: 'stocks#search'
 
 end
