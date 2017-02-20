@@ -9,5 +9,4 @@ Rails.application.routes.draw do
   post '/session/login'
   get '/session/logout', to: 'session#logout', as: 'logout'
 
-
 end

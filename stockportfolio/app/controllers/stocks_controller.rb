@@ -2,7 +2,6 @@ class StocksController < ApplicationController
 
   def show
     @stock = StockQuote::Stock.json_quote(params[:symbol]["quote"])
-    binding.pry
     if @stock
       render json: @stock
     else
@@ -16,7 +15,7 @@ class StocksController < ApplicationController
     #company_name: "Apple Inc."
     #company_symbol: "AAPL"
     #listing_exchange: "NASDAQ"
-    
+
     if response
       render json: response
     else
