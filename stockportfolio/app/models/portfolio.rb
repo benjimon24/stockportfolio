@@ -17,4 +17,8 @@ class Portfolio < ApplicationRecord
     self.stocks.inject {|total, stock| total += stock.net_profit}
   end
 
+  def percent_change
+    self.stocks.net_profit / self.stocks.cost_basis
+  end
+
 end
