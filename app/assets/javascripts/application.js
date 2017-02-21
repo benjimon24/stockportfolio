@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require highcharts
+//= require chartkick
 
 //= require react
 //= require react_ujs

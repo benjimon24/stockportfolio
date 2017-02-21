@@ -1,8 +1,50 @@
-tina = User.create(first_name: "Tina", last_name: "Fey", email: "Tina@fey.com", password: "asdasd" )
-high = tina.portfolios.create(name:"High Risk")
-low = tina.portfolios.create(name:"Low Risk")
-high.stocks.create(name: "Apple", symbol: "AAPL", volume: 5, buy_price: 100)
-high.stocks.create(name: "Alibaba", symbol: "BABA", volume: 10, buy_price: 200)
-high.stocks.create(name: "Athenahealth", symbol: "ATHN", volume: 5, buy_price: 50)
-low.stocks.create(name: "Amazon", symbol: "AMZN", volume: 5, buy_price: 1000)
-low.stocks.create(name: "Aflac", symbol: "AFL", volume: 10, buy_price: 50)
+User.delete_all
+Portfolio.delete_all
+Stock.delete_all
+
+ben = User.create(
+first_name: "Ben",
+last_name: "Li",
+email: "holla@you",
+password: "asdfasdf"
+)
+
+rina = User.create(
+first_name: "Rina",
+last_name: "Rama",
+email: "hi@you",
+password: "asdfasdf"
+)
+
+sid = User.create(
+first_name: "Sid",
+last_name: "Aloha",
+email: "aloha@you",
+password: "asdfasdf"
+)
+
+port1 = ben.portfolios.create(name: "HOLLA HOLLA GET DOLLA")
+port2 = ben.portfolios.create(name: "MONEYYY")
+port3 = ben.portfolios.create(name: "yoyoyoyo")
+
+stock1 = port1.stocks.create(
+name: "Apple Inc.",
+buy_price: 123.45,
+volume: 10000,
+symbol: "AAPL"
+)
+
+stock2 = port1.stocks.create(
+name: "Google",
+buy_price: 750.75,
+volume: 2000,
+symbol: "GOOG"
+)
+
+stock3 = port1.stocks.create(
+name: "Chipotle Mexican Grill",
+buy_price: 350.23,
+volume: 1000,
+symbol: "CMG"
+)
+>>>>>>> 361feaaa0a2cb44634d0ffafb35d85e0359c6b18

@@ -2,7 +2,7 @@ class StocksController < ApplicationController
   before_action :find_stock, only: [:edit, :update, :destroy]
 
   def show
-    @stock = StockQuote::Stock.json_quote(params[:symbol])["quote"]
+    @stock = StockQuote::Stock.json_quote(params[:id])["quote"]
     if @stock
       render json: @stock
     else
