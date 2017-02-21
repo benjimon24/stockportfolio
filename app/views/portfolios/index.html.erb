@@ -1,6 +1,22 @@
 <h1 class="welcome">Welcome <%=current_user.first_name.capitalize%>!</h1>
 <h3 class="medium-header">My Portfolio</h3>
 <div class="all-portfolios">
+
+<table>
+  <th>Portfolio Name</th>
+  <th>Net Profit</th>
+    <%@portfolios.each do |portfolio|%>
+      <tr>
+        <td> <%= link_to("#{portfolio.name}", portfolio_path(portfolio))%></td>
+        <td>  <%=portfolio.net_profit%></td>
+      </tr>
+    <%end%>
+</table>
+
+</div>
+<div class="new-portfolio">
+  <%= render partial: "portfolios/new"%>
+
   <%@portfolios.each do |portfolio|%>
   <%=portfolio.name%>
   <%=portfolio.net_profit%>
