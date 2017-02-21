@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'portfolios#index'
+  get '/', to: 'users#index'
   get 'stocks/search/:name', to: 'stocks#search'
   get 'stocks/:symbol', to: 'stocks#show'
   resources :users, except: [:index, :destroy]
@@ -8,5 +8,4 @@ Rails.application.routes.draw do
   get '/session/login', to: 'session#login', as: 'login'
   post '/session/login', to: 'session#create'
   get '/session/logout', to: 'session#logout', as: 'logout'
-
 end
