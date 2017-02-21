@@ -9,7 +9,7 @@
     <h2>Portfolio Breakdown:</h2>
     <h3>Cool PieChart Here</h3>
 
-
+    <%= pie_chart @data %>
     <h1>( <)</h1>
     <ul>
       <li>40% Apple Inc. (AAPL) </li>
@@ -22,11 +22,18 @@
   <div class="stocks">
     <h2>Stocks:</h2>
 
-    <ul>
       <% @portfolio.stocks.each do|stock| %>
-      <li><a href="/stocks/<%= stock.symbol%>"> <%=stock.name%> (<%=stock.symbol%>): <%=stock.percent_change%> %</a> </li>
+      <div class="single-stock">
+        <span><a href="/stocks/<%= stock.symbol%>"> <%=stock.name%> </span>
+        <span>(<%=stock.symbol%>):</a> </span> <br>
+        <span>Number of Shares: <%= stock.volume%></span> <br>
+        <span>Buy Price: <%= stock.buy_price%></span> <br>
+        <span>Cost Basis: <%= stock.cost_basis%></span> <br>
+        <span>Market Price: <%= stock.current_price%></span> <br>
+        <span>Market Value: <%= stock.current_value %></span> <br>
+        <span>Gains/Losses: <%=stock.percent_change %>%</span>
+      </div>
       <% end %>
-    </ul>
   </div>
 
   <a href="/portfolios">Go Back</a>

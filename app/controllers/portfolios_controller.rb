@@ -23,6 +23,10 @@
 
   def show
     @portfolio = Portfolio.find(params[:id])
+    @data = {}
+    @portfolio.stocks.each do |stock|
+      @data[stock.symbol] = stock.buy_price
+    end
   end
 
   def update
