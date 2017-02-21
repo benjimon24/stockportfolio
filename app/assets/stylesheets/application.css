@@ -1,3 +1,15 @@
+form.search-form {
+  float: left;
+}
+
+form.search-form input {
+  color: black;
+}
+
+div.main {
+  padding-top: 50px;
+}
+
 .welcome {
   margin-top: 50px;
   margin-left: 10px;
@@ -35,3 +47,13 @@ td, tr {
     margin: 50px;
 }
 
+
+.login-form {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.signup-form {
+  text-align: center;
+  margin-top: 100px;
+}
