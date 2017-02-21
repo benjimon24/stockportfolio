@@ -4,7 +4,8 @@ class StocksController < ApplicationController
   def show
     @stock = StockQuote::Stock.json_quote(params[:id])["quote"]
     if @stock
-      render json: @stock
+      # render json: @stock
+      
     else
       @stock.response_code
     end

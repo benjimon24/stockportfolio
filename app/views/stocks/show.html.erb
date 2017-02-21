@@ -1,1 +1,27 @@
-<h2>@stock.</h2>
+<h2><%=@stock['symbol']%></h2>
+  <div class="">
+    <li><span>Market Price:</span><%= @stock['LastTradePriceOnly']%></li>
+    <li><span>Bid:</span><%= @stock['Bid']%></li>
+    <li><span>Ask:</span><%= @stock['Ask']%></li>
+    <li><span>Market Cap:</span><%= @stock['MarketCapitalization']%></li>
+    <li><span>Change %:</span><%= @stock['PercentChange']%></li>
+    <li><span>Change:</span><%= @stock['Change']%></li>
+  </div>
+
+<div class="">
+  <form class="" action="/stocks" method="post">
+    <label for="">Portfolio:</label>
+    <select>
+      <option value="1">portfolio1</option>
+      <option value="2">portfolio2</option>
+      <option value="3">portfolio3</option>
+      <option value="4">portfolio4</option>
+    </select><br>
+    <input type="text" name="stock[buy_price]" value="<%=@stock['LastTradePriceOnly']%>"><br>
+    <label for=""># of shares:</label>
+    <input type="number" name="stock[volume]" value=""><br>
+    <label for="">Stock Name:</label>
+    <input type="text" name="stock[name]" value="<%= @stock['Name']%>"><br>
+    <input type="submit" name="name" value="Buy">
+  </form>
+</div>
