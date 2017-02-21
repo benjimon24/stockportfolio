@@ -22,8 +22,6 @@
   end
 
   def show
-    @portfolio = Portfolio.find(params:id)
-    # authorize_user
   end
 
   def update
