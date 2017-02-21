@@ -15,7 +15,7 @@ module UserHelper
     session[:user_id] == @portfolio.user_id
   end
 
-  def authorized_user?
+  def authorize_user
     redirect_to portfolios_path unless authorized?
   end
 end
