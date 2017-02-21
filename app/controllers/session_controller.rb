@@ -1,7 +1,5 @@
 class SessionController < ApplicationController
-
   def login
-
   end
 
   def create
@@ -15,7 +13,7 @@ class SessionController < ApplicationController
   end
 
   def logout
-    session[:user_id] = nil
+    session[:user_id].clear
     redirect_to login_path
   end
 end

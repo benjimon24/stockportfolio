@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require chartkick
 //= require react
 //= require react_ujs
 //= require components
