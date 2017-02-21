@@ -1,18 +1,6 @@
 class PortfoliosController < ApplicationController
   before_action :find_portfolio, only: [:edit, :update, :show, :destroy]
   
-  def index
-<<<<<<< HEAD
-    render 'portfolios/index'
-  end
-
-  def create
-
-=======
-    current_user.portfolios.all
->>>>>>> 1862b7005e41077625a12328cac823a885d9922e
-  end
-
   def new
     @portfolio = Portfolio.new
   end
