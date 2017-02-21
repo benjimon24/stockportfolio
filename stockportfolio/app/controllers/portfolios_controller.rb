@@ -1,6 +1,6 @@
-class PortfoliosController < ApplicationController
+  class PortfoliosController < ApplicationController
   before_action :find_portfolio, only: [:edit, :update, :show, :destroy]
-  
+
   def index
     current_user.portfolios.all
   end
@@ -17,7 +17,6 @@ class PortfoliosController < ApplicationController
       status 404
     end
   end
-
 
   def edit
   end
