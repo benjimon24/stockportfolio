@@ -29,6 +29,11 @@ class UsersController < ApplicationController
   def show
   end
 
+  def logout
+    sessions[:user_id]=nil
+    redirect_to root_path
+  end
+
   private
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :password)

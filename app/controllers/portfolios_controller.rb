@@ -2,7 +2,7 @@
   before_action :find_portfolio, only: [:edit, :update, :show, :destroy]
 
   def index
-    # @portfolios = current_user.portfolios.all
+    @portfolios = current_user.portfolios
   end
 
   def new
