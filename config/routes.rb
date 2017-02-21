@@ -6,10 +6,12 @@ Rails.application.routes.draw do
   get '/', to: 'session#login'
 
   get '/search/:name', to: 'stocks#search'
-  # get '/stocks/:id', to: 'stocks#show'
+
+  # stock routes
+  post '/buy', to: 'stocks#create'
+  put '/sell', to: 'stocks#update'
 
   get '/session/login', to: 'session#login', as: 'login'
   post '/session/login', to: 'session#create'
-
   get '/session/logout', to: 'session#logout', as: 'logout'
 end
