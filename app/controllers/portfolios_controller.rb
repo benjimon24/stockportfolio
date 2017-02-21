@@ -7,7 +7,7 @@
   end
 
   def create
-    @portfolio = current_user.portfolio.new(portfolio_params)
+    @portfolio = current_user.portfolios.new(portfolio_params)
     if @portfolio.save
       redirect_to portfolios_path
     else
@@ -19,6 +19,7 @@
   end
 
   def show
+    
   end
 
   def update
