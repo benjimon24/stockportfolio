@@ -4,7 +4,8 @@ class StocksController < ApplicationController
   def show
     @stock = StockQuote::Stock.json_quote(params[:id])["quote"]
     if @stock
-      render json: @stock
+      # render json: @stock
+
     else
       @stock.response_code
     end
@@ -28,9 +29,17 @@ class StocksController < ApplicationController
   end
 
   def create
+    existing_stock =  is_in_portfolio
     @stock = Stock.new(stock_params)
-    if @stock.save
-      redirect_to portfolios_path
+
+    if @stock.valid?
+      if existing_stock
+        existing_stock.update(buy_price: new_cost_basis(existing_stock), volume: new_volume(existing_stock))
+        redirect_to portfolios_path
+      else
+        @stock.save
+        redirect_to portfolios_path
+      end
     else
       flash[:alert] = "Error creating stock!"
     end
@@ -62,8 +71,26 @@ private
     "ad66629db14dad47e02a19f582436c500560afcc"
   end
 
+  def new_cost_basis(existing_stock)
+    (existing_stock.buy_price + @stock.buy_price) / 2
+  end
+
+  def new_volume(existing_stock)
+    existing_stock.volume + @stock.volume
+  end
+
+  def is_in_portfolio
+    existing_stock = Stock.where(portfolio_id: stock_params[:portfolio_id], symbol: stock_params[:symbol])
+
+    if existing_stock.length > 0
+      existing_stock[0]
+    else
+      nil
+    end
+  end
+
   def stock_params
-    params.require(:stocks).permit(:name, :buy_price, :volume, :symbol)
+    params.require(:stock).permit(:portfolio_id, :name, :buy_price, :volume, :symbol)
   end
 
   def find_stock
