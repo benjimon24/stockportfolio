@@ -32,7 +32,11 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
-gem 'chartkick'
+gem 'chartkick', '~> 2.2.2'
+gem 'groupdate', '~> 3.2.0'
+gem 'active_median', '~> 0.1.4'
+
+gem 'better_errors'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

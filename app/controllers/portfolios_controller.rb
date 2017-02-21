@@ -3,8 +3,15 @@
 
   def index
     @portfolios = current_user.portfolios
+
     @newportfolio = Portfolio.new
+
   end
+
+#   def new
+#     @portfolio = Portfolio.new
+
+#   end
 
   def create
     @portfolio = current_user.portfolios.new(portfolio_params)
@@ -19,7 +26,11 @@
   end
 
   def show
-    
+    @portfolio = Portfolio.find(params[:id])
+    @data = {}
+    @portfolio.stocks.each do |stock|
+      @data[stock.symbol] = stock.buy_price
+    end
   end
 
   def update

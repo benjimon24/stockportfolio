@@ -2,7 +2,6 @@
 <h3 class="medium-header">My Portfolio</h3>
 <div class="all-portfolios">
 
-
 <table>
   <th>Portfolio Name</th>
   <th>Net Profit</th>
@@ -17,4 +16,9 @@
 </div>
 <div class="new-portfolio">
   <%= render partial: "portfolios/new"%>
+
+  <%@portfolios.each do |portfolio|%>
+  <%=portfolio.name%>
+  <%=portfolio.net_profit%>
+  <%end%>
 </div>
