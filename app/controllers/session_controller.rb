@@ -1,5 +1,8 @@
 class SessionController < ApplicationController
   def login
+    if current_user
+      redirect_to portfolios_path
+    end
   end
 
   def create
@@ -13,7 +16,8 @@ class SessionController < ApplicationController
   end
 
   def logout
-    session[:user_id].clear
+    session[:user_id] = nil
     redirect_to login_path
   end
+
 end
