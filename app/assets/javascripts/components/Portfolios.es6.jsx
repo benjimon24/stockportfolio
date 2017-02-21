@@ -5,7 +5,7 @@ class Portfolios extends React.Component{
   return (
     <section className="portfolios-content">
         <span className="portfolio-name">{portfolio.name}</span><br />
-        {/* make the portfolio name a link to porfolios/:id page */}
+        {/* <a href="portfolios/{portfolio.id}>{portfolio.name}</a>"*/}
         <span className="portfolio-PnL">{portfolio.net_profit}</span><br />
     </section>
   )
