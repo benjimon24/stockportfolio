@@ -3,7 +3,7 @@ class Portfolio < ApplicationRecord
   has_many :stocks, dependent: :destroy
 
   validates :name, presence: true
-  validates :name, scope: :user_id, message: "Portfolio with the name already exists!", uniqueness: true
+  validates :name, uniqueness: true
 
   def current_value
     self.stocks.inject(0) {|total, stock| total += stock.current_value}

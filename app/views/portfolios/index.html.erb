@@ -1,1 +1,8 @@
-<%= react_component('PortfoliosContainer', current_user: current_user ) %>
+<h1 class="welcome">Welcome <%=current_user.first_name.capitalize%>!</h1>
+<h3 class="medium-header">My Portfolio</h3>
+<div class="all-portfolios">
+  <%@portfolios.each do |portfolio|%>
+  <%=portfolio.name%>
+  <%=portfolio.net_profit%>
+  <%end%>
+</div>
