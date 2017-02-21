@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :portfolios
   resources :stocks, except: [:index]
   get '/session/login', to: 'session#login', as: 'login'
-  post '/session/login', to: 'sessions#create'
+  post '/session/login', to: 'session#create'
   get '/session/logout', to: 'session#logout', as: 'logout'
 
 end
