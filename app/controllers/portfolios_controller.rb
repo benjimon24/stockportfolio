@@ -3,14 +3,11 @@
 
   def index
     @portfolios = current_user.portfolios
-  end
-
-  def new
-    @portfolio = Portfolio.new
+    @newportfolio = Portfolio.new
   end
 
   def create
-    @portfolio = Portfolio.new(portfolio_params)
+    @portfolio = current_user.portfolio.new(portfolio_params)
     if @portfolio.save
       redirect_to portfolios_path
     else
