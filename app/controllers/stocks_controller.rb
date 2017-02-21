@@ -1,11 +1,10 @@
 class StocksController < ApplicationController
-  before_action :find_stock, only: [:edit, :update, :destroy]
+  before_action :find_stock, only: [:edit, :destroy]
 
   def show
     @stock = StockQuote::Stock.json_quote(params[:id])["quote"]
     if @stock
       # render json: @stock
-
     else
       @stock.response_code
     end
@@ -49,20 +48,27 @@ class StocksController < ApplicationController
   end
 
   def update
-    if @stock.update(stock_params)
-      redirect_to portfolios_path
+    @stock = Stock.new(stock_params)
+    existing_stock =  is_in_portfolio
+
+    if existing_stock && enough_shares?(existing_stock)
+      binding.pry
+      existing_stock.update(
+        buy_price: new_cost_basis(existing_stock),
+        volume: new_volume(existing_stock))
+
+      redirect_to '/portfolios'
     else
-      flash[:alert] = "Error updating stock!"
-      render 'edit'
+      flash[:alert] = "Error selling stock!"
     end
   end
 
   def destroy
-    if @stock.destroy
-      redirect_to portfolios_path
-    else
-      flash[:alert] = "Error selling stock!"
-    end
+    # if @stock.destroy
+    #   redirect_to portfolios_path
+    # else
+    #   flash[:alert] = "Error selling stock!"
+    # end
   end
 
 
@@ -77,6 +83,10 @@ private
 
   def new_volume(existing_stock)
     existing_stock.volume + @stock.volume
+  end
+
+  def enough_shares?(existing_stock)
+    existing_stock.volume >= stock_params[:volume].to_i
   end
 
   def is_in_portfolio

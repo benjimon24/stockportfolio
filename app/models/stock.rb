@@ -19,7 +19,7 @@ class Stock < ApplicationRecord
   end
 
   def percent_change
-    self.net_profit / self.cost_basis
+    ((self.net_profit / self.cost_basis) * 100).round(2)
   end
 
 end
