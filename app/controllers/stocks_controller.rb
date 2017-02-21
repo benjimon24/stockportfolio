@@ -35,6 +35,7 @@ class StocksController < ApplicationController
     if @stock.valid?
       if existing_stock
         existing_stock.update(buy_price: new_cost_basis(existing_stock), volume: new_volume(existing_stock))
+        redirect_to portfolios_path
       else
         @stock.save
         redirect_to portfolios_path
