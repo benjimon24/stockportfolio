@@ -1,9 +1,13 @@
 FactoryGirl.define do
   factory :portfolio do
-    association :user, factory: :user
-
-    after(:create) do |portfolio|
-      name "portfolio_test"
+    user
+    name "portfolio_test"
+    transient do
+      stock_count 1
+    end
+    after(:create) do |portfolio, evaluator|
+      create_list(:stock, evaluator.stock_count, portfolio: portfolio)
     end
   end
+
 end

@@ -1,13 +1,13 @@
 class Stock < ApplicationRecord
   belongs_to :portfolio
-  validates_presence_of :name, :cost_basis, :volume, :symbol
+  validates_presence_of :name, :buy_price, :volume, :symbol
 
   def current_price
     StockQuote::Stock.json_quote(self.symbol)["quote"]["Ask"].to_f
   end
 
   def current_value
-    current_price * self.volume
+    self.current_price * self.volume
   end
 
   def cost_basis
@@ -21,5 +21,5 @@ class Stock < ApplicationRecord
   def percent_change
     self.net_profit / self.cost_basis
   end
-  
+
 end
