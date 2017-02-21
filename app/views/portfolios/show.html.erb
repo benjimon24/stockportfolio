@@ -1,14 +1,16 @@
 <div class="portfolio">
-  <h1> Portfolio Name </h1>
+  <h1> <%= @portfolio.name %> </h1>
+  <!-- <h1> Portfolio Name </h1> -->
   <div class="total">
-    Total Happiness: 350,000,000,000,000,000,000
+    Total Happiness: $<%= @portfolio.current_value %>
   </div>
 
   <div class="portfolio-charts">
     <h2>Portfolio Breakdown:</h2>
     <h3>Cool PieChart Here</h3>
-    <h1>( <)</h1>
 
+
+    <h1>( <)</h1>
     <ul>
       <li>40% Apple Inc. (AAPL) </li>
       <li>40% Google (GOOG)</li>
@@ -19,12 +21,13 @@
 
   <div class="stocks">
     <h2>Stocks:</h2>
+
     <ul>
-      <li><a href="/stocks/APPL">Apple Inc. (APPL): -20%</a> </li>
-      <li> <a href="/stocks/GOOG">Google. (GOOG): +10% </a> </li>
-      <li>  <a href="/stocks/CMG">Chipotle (CMG): +125%</a> </li>
+      <% @portfolio.stocks.each do|stock| %>
+      <li><a href="/stocks/<%= stock.symbol%>"> <%=stock.name%> (<%=stock.symbol%>): <%=stock.percent_change%> %</a> </li>
+      <% end %>
     </ul>
   </div>
 
-  <a href="/">Go Back</a>
+  <a href="/portfolios">Go Back</a>
 </div>
