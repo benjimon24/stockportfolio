@@ -1,6 +1,6 @@
 class PortfoliosController < ApplicationController
   def index
-    current_user.portfolios.all 
+    render 'portfolios/index'
   end
 
   def create
