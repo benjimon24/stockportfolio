@@ -1,12 +1,23 @@
 class Portfolio extends React.Component {
   constructor() {
     super();
+    this.state = {
+      current_user: ""
+    }
   }
+
+  componentWillMount() {
+    let current_user = this.props.current_user
+    this.setState({
+      current_user: current_user
+    })
+  }
+
   render() {
     return(
       <div>
       <header className="w3-container">
-        <h5><i className="fa fa-dashboard"></i>My Portfolio</h5>
+        <h5><i className="fa fa-dashboard"></i>{this.state.current_user.first_name}'s Profile</h5>
       </header>
       <div className="w3-row-padding w3-margin-bottom">
         <div className="w3-quarter">
