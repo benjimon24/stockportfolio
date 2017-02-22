@@ -8,13 +8,13 @@
   <div class="portfolio-charts">
     <h2>Portfolio Breakdown:</h2>
 
-    <h3>Stock Position Allocations</h3>
-      <div class=pie-num>
+      <div class="pie-num">
+        <h3>Stock Position Allocations</h3>
           <%= pie_chart @data %>
       </div>
 
-    <h3>Gains and Losses (Percent Change)</h3>
-    <div class=pie-gains>
+    <div class="pie-gains">
+      <h3>Gains and Losses (Percent Change)</h3>
         <%= column_chart @gains %>
     </div>
 
@@ -24,19 +24,32 @@
 
   </div>
 
-  <div class="stocks">
+  <div class="stocks positions">
     <h2>Stocks:</h2>
+
+      <div class="heading">
+        <span>Ticker</span>
+        <span>Name</span>
+        <span># of Shares</span>
+        <span>Buy Price</span>
+        <span>Cost Basis</span>
+        <span>Market Price</span>
+        <span>Market Value</span>
+        <span>Gains/Losses</span>
+      </div>
 
       <% @portfolio.stocks.each do|stock| %>
       <div class="single-stock">
-        <span><a href="/stocks/<%= stock.symbol%>"> <%=stock.name%> </span>
-        <span>(<%=stock.symbol%>):</a> </span> <br>
-        <span>Number of Shares: <%= stock.volume%></span> <br>
-        <span>Buy Price: <%= stock.buy_price%></span> <br>
-        <span>Cost Basis: <%= stock.cost_basis%></span> <br>
-        <span>Market Price: <%= stock.current_price%></span> <br>
-        <span>Market Value: <%= stock.current_value %></span> <br>
-        <span>Gains/Losses: <%=stock.percent_change %>%</span>
+        <a href="/stocks/<%= stock.symbol%>">
+          <span><%=stock.symbol %></span>
+          <span><%= stock.name %> </span>
+          <span><%= stock.volume %></span>
+          <span><%= stock.buy_price %></span>
+          <span><%= stock.cost_basis.to_i %></span>
+          <span><%= stock.current_price%></span>
+          <span><%= stock.current_value.to_i %></span>
+          <span><%=stock.percent_change %>%</span>
+        </a>
       </div>
       <% end %>
   </div>
