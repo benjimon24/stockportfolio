@@ -16,6 +16,6 @@ module UserHelper
   end
 
   def authorize_user
-    redirect_to portfolios_path unless authorized?
+    redirect_to '/' unless authorized?
   end
 end

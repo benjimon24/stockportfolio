@@ -26,6 +26,7 @@
 
   def show
     @portfolio = Portfolio.find(params[:id])
+    authorize_user
     @data = {}
     @portfolio.stocks.each do |stock|
       @data[stock.symbol] = stock.buy_price

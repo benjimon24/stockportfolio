@@ -13,8 +13,7 @@
 
   <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
   <%= stylesheet_link_tag 'http://yandex.st/bootstrap/3.1.1/css/bootstrap.min.css' %>
-  <%= javascript_include_tag 'http://yandex.st/bootstrap/3.1.1/js/bootstrap.min.js' %>
-  <body>
+  <%= javascript_include_tag 'http://yandex.st/bootstrap/3.1.1/js/bootstrap.min.js' %> <body>
     <%if current_user%>
     <div class="w3-container w3-top w3-black w3-large w3-padding" style="z-index:4">
       <span class="w3-right"><a href="/session/logout">Logout</a></span>
@@ -33,7 +32,7 @@
     </div>
     <%end%>
 
-    <div class="main">
+    <div class="main  container">
           <%= yield %>
     </div>
 
