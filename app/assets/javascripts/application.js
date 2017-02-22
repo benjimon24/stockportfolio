@@ -20,3 +20,8 @@
 //= require jsapi
 //= require chartkick
 //= require_tree .
+// $( document ).ready(function() {
+//   $('html, body').animate({
+//       scrollTop: $(".stocks").offset().top
+//   }, 1000);
+// })
