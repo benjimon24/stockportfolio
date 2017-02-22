@@ -84,6 +84,28 @@ td, tr {
   margin-top: 100px;
 }
 
+
+.standard-form{
+    display: inline;
+    float: left;
+    clear: left;
+    width: 40%;
+    margin: 20px;
+    text-align: left;
+    padding: 5px 10px;
+    border:1px solid black;
+  }
+
+.left-form {
+  float:right;
+  position:fixed;
+  margin-right:30px;
+}
+
+.stock-info {
+  margin-left: 50px;
+  padding: 40px;
+
 .heading {
   width: 1140px;
   background: #1d3e82;
