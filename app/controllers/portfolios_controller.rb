@@ -2,15 +2,18 @@
   before_action :find_portfolio, only: [:edit, :update, :show, :destroy]
 
   def index
-    # @portfolios = current_user.portfolios.all
+    require_user
+    @newportfolio = Portfolio.new
+    @portfolios = current_user.portfolios
   end
 
-  def new
-    @portfolio = Portfolio.new
-  end
+#   def new
+#     @portfolio = Portfolio.new
+
+#   end
 
   def create
-    @portfolio = Portfolio.new(portfolio_params)
+    @portfolio = current_user.portfolios.new(portfolio_params)
     if @portfolio.save
       redirect_to portfolios_path
     else

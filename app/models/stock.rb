@@ -1,6 +1,6 @@
 class Stock < ApplicationRecord
   belongs_to :portfolio
-  validates_presence_of :name, :buy_price, :volume, :symbol
+  validates :name, :buy_price, :volume, :symbol, presence: true
 
   def current_price
     StockQuote::Stock.json_quote(self.symbol)["quote"]["Ask"].to_f
