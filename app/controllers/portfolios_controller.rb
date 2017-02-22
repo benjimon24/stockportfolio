@@ -30,6 +30,10 @@
     @portfolio.stocks.each do |stock|
       @data[stock.symbol] = stock.buy_price
     end
+    @gains = {}
+    @portfolio.stocks.each do |stock|
+      @gains[stock.symbol] = stock.percent_change
+    end
   end
 
   def update

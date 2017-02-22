@@ -2,21 +2,26 @@
   <h1> <%= @portfolio.name %> </h1>
   <!-- <h1> Portfolio Name </h1> -->
   <div class="total">
-    Total Happiness: $<%= @portfolio.current_value %>
+    Total Value: $<%= @portfolio.current_value %>
   </div>
 
   <div class="portfolio-charts">
     <h2>Portfolio Breakdown:</h2>
-    <h3>Cool PieChart Here</h3>
 
-    <%= pie_chart @data %>
-    <h1>( <)</h1>
-    <ul>
-      <li>40% Apple Inc. (AAPL) </li>
-      <li>40% Google (GOOG)</li>
-      <li>20% Chipotle (CMG)</li>
-      (This will be part of the pie chart)
-    </ul>
+    <h3>Stock Position Allocations</h3>
+      <div class=pie-num>
+          <%= pie_chart @data %>
+      </div>
+
+    <h3>Gains and Losses (Percent Change)</h3>
+    <div class=pie-gains>
+        <%= column_chart @gains %>
+    </div>
+
+  <!-- <div class=pie-losses>
+      <%= pie_chart @data %>
+  </div> -->
+
   </div>
 
   <div class="stocks">
